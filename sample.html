@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>IPLUG — Email Design System (style.css reference)</title>
+<link href="style.css" rel="stylesheet">
+<style>
+  /* page-only chrome for this style-guide (not part of style.css) */
+  body.guide { background:#05070a; padding:40px 16px; }
+  .guide-section { max-width:660px; margin:0 auto 56px; }
+  .guide-section h3 { font-family:'Space Grotesk','Poppins','Segoe UI',Helvetica,Arial,sans-serif; color:#f5f7fa; font-size:13px; text-transform:uppercase; letter-spacing:2px; border-bottom:1px solid #234A3A; padding-bottom:10px; margin:0 0 20px; }
+  .guide-row { display:flex; flex-wrap:wrap; gap:14px; align-items:flex-start; margin-bottom:14px; }
+  .swatch { width:110px; }
+  .swatch-box { width:100%; height:56px; border-radius:8px; border:1px solid #232c36; }
+  .swatch-label { font-family:'JetBrains Mono',monospace; font-size:11px; color:#8D99AA; margin-top:6px; }
+  code.tag { font-family:'JetBrains Mono',monospace; font-size:11px; color:#4EF0C4; background:#0F1710; border:1px solid #234A3A; border-radius:4px; padding:2px 6px; }
+  .lede { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif; color:#C7D0DC; font-size:15px; line-height:25px; }
+  .meta-table td { padding:8px 0; border-bottom:1px dashed #232c36; font-family:'JetBrains Mono',monospace; font-size:13px; color:#a8b3bd; vertical-align:top; }
+  .meta-table td:first-child { color:#6b7684; width:150px; white-space:nowrap; }
+</style>
+</head>
+<body class="guide">
+
+<!-- ============================================================
+     0. WHAT THIS FILE IS — read this first
+     ============================================================ -->
+<div class="guide-section">
+  <div style="text-align:center; margin-bottom:28px;">
+    <img src="data:image/png;base64,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" width="72" height="72" alt="IPLUG logo" style="display:inline-block; border-radius:12px;">
+  </div>
+  <h3>About this design system</h3>
+  <p class="lede" style="margin-bottom:14px;">
+    This file, together with <code class="tag">style.css</code>, documents the visual language used across
+    IPLUG's HTML email campaigns (<code class="tag">core_team.html</code>, <code class="tag">final_draft.html</code>,
+    <code class="tag">reminder.html</code>, <code class="tag">thanks.html</code>). If you only have these two files,
+    you have everything needed to understand — or generate new — emails that match the existing set.
+  </p>
+  <table class="meta-table" width="100%" cellpadding="0" cellspacing="0">
+    <tr><td>Brand</td><td>IPLUG — the technology, computing &amp; gaming club at IISER Pune</td></tr>
+    <tr><td>Format</td><td>Dark-mode-only HTML emails, table-based layout for email-client compatibility (Outlook/mso conditionals, role="presentation" tables, inline-safe structure)</td></tr>
+    <tr><td>Visual motif</td><td>Developer / terminal aesthetic — command-line prompts ("&gt;"), code comments ("// like this"), monospace labels, boot-sequence / progress-bar flourishes, file-path-style captions (e.g. "./code_module.py")</td></tr>
+    <tr><td>Voice &amp; tone</td><td>Casual, geeky, slightly playful. Copy leans on programming metaphors ("compiling ideas", "system ready", "awaiting your next commit") without being a gimmick — headings and CTAs stay clear and direct</td></tr>
+    <tr><td>Two colour themes</td><td>See section 2 &amp; 3 below — both are dark, near-black backgrounds with a single green accent, just different exact hues/panels</td></tr>
+    <tr><td>Typography</td><td>Monospace for labels/eyebrows/code bits, a geometric display sans for headlines, a plain system sans for paragraph copy — see section 1</td></tr>
+    <tr><td>Recurring components</td><td>Terminal-chrome window, quote/callout block, numbered task-list rows, chip/pill links (WhatsApp / Discord / Instagram), highlighted deadline box, footer sign-off card with logo + social chips — see sections 4–13</td></tr>
+    <tr><td>Logo</td><td>Single square mark, shown above and reused at 88px (header) / 70px (footer sign-off) throughout every email — embedded inline below and in style.css consumers as base64 PNG</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================
+     1. TYPOGRAPHY
+     ============================================================ -->
+<div class="guide-section">
+  <h3>1. Fonts — .font-mono / .font-display / .font-body</h3>
+  <p class="font-mono c-f5f7fa fs-18px" style="margin-bottom:6px;">.font-mono — JetBrains Mono / Fira Code / Courier New — used for eyebrow labels, code snippets, terminal text, chip text</p>
+  <p class="font-display c-f5f7fa fs-18px" style="margin-bottom:6px;">.font-display — Space Grotesk / Poppins — used for large headlines (final_draft/reminder/thanks theme)</p>
+  <p class="font-body c-f5f7fa fs-18px">.font-body — system UI sans-serif — used for paragraph / body copy</p>
+  <p class="ff-space-mono-courier-new-monospace c-f5f7fa fs-18px" style="margin-top:6px;">.ff-space-mono-courier-new-monospace — Space Mono — used for headlines in the core_team theme instead of Space Grotesk</p>
+</div>
+
+<!-- ============================================================
+     2 & 3. COLOUR THEMES
+     ============================================================ -->
+<div class="guide-section">
+  <h3>2. Theme A palette — used by final_draft.html, reminder.html, thanks.html (navy / mint)</h3>
+  <div class="guide-row">
+    <div class="swatch"><div class="swatch-box email-shell"></div><div class="swatch-label">.email-shell #0B0F19 (page bg)</div></div>
+    <div class="swatch"><div class="swatch-box email-panel"></div><div class="swatch-label">.email-panel #12161F (card bg)</div></div>
+    <div class="swatch"><div class="swatch-box email-soft"></div><div class="swatch-label">.email-soft #0F1710 (soft bg)</div></div>
+    <div class="swatch"><div class="swatch-box accent-1-bg"></div><div class="swatch-label">.accent-1-bg #4EF0C4 (accent)</div></div>
+  </div>
+  <p class="email-text fs-16px" style="margin-bottom:4px;">.email-text — #F5F7FA — headings / primary text</p>
+  <p class="email-body-text fs-16px" style="margin-bottom:4px;">.email-body-text — #C7D0DC — paragraph copy</p>
+  <p class="email-muted fs-16px" style="margin-bottom:4px;">.email-muted — #8D99AA — captions / secondary text</p>
+  <p class="accent-1 fs-16px" style="margin-bottom:4px;">.accent-1 — #4EF0C4 — primary accent (mint green)</p>
+  <p class="accent-2 fs-16px">.accent-2 — #2CB67D — deep accent (used for kickers/eyebrows)</p>
+</div>
+
+<div class="guide-section">
+  <h3>3. Theme B palette — used by core_team.html (black / signal-green)</h3>
+  <div class="guide-row">
+    <div class="swatch"><div class="swatch-box bgc-0b0f14" style="border-color:#232c36;"></div><div class="swatch-label">.bgc-0b0f14 (page bg)</div></div>
+    <div class="swatch"><div class="swatch-box bgc-131a22"></div><div class="swatch-label">.bgc-131a22 (card bg)</div></div>
+    <div class="swatch"><div class="swatch-box bgc-29d47a"></div><div class="swatch-label">.bgc-29d47a (accent)</div></div>
+  </div>
+  <p class="c-f5f7fa fs-16px" style="margin-bottom:4px;">.c-f5f7fa — heading/body text</p>
+  <p class="c-a8b3bd fs-16px" style="margin-bottom:4px;">.c-a8b3bd — muted text</p>
+  <p class="c-6b7684 fs-16px" style="margin-bottom:4px;">.c-6b7684 — extra-muted text</p>
+  <p class="c-29d47a fs-16px">.c-29d47a — signal-green accent (this theme's equivalent of Theme A's mint)</p>
+</div>
+
+<!-- ============================================================
+     4. BUTTONS / CTAS
+     ============================================================ -->
+<div class="guide-section">
+  <h3>4. Buttons / CTAs — .cta-fill + .cta-text (Theme A), solid fill (Theme B)</h3>
+  <table role="presentation" cellpadding="0" cellspacing="0" style="margin-bottom:16px;">
+    <tr><td class="cta-fill br-8px ta-center">
+      <a href="#" class="font-mono cta-text d-inline-block pad-14px-32px fs-13px fw-700 ls-1px">&gt; VIEW ORIENTATION SLIDES</a>
+    </td></tr>
+  </table>
+  <table role="presentation" cellpadding="0" cellspacing="0">
+    <tr><td class="bgc-29d47a br-6px ta-center">
+      <a href="#" class="ff-space-mono-courier-new-monospace fw-700 fs-18px c-0b0f14 d-inline-block pad-13px-30px">Apply Now</a>
+    </td></tr>
+  </table>
+</div>
+
+<!-- ============================================================
+     5. CHIPS / SOCIAL PILLS
+     ============================================================ -->
+<div class="guide-section">
+  <h3>5. Chips / pills — .chip / .chip-row (social links: WhatsApp, Discord, Instagram)</h3>
+  <table role="presentation" cellpadding="0" cellspacing="0" class="chip-row" style="display:inline-table;">
+    <tr>
+      <td style="padding-right:8px;"><a href="#" class="chip font-mono d-inline-block pad-6px-12px br-20px fs-12px fw-700 ls-0-5px">Tech Forum</a></td>
+      <td style="padding-right:8px;"><a href="#" class="chip font-mono d-inline-block pad-6px-12px br-20px fs-12px fw-700 ls-0-5px">Discord</a></td>
+      <td><a href="#" class="chip font-mono d-inline-block pad-6px-12px br-20px fs-12px fw-700 ls-0-5px">Instagram</a></td>
+    </tr>
+  </table>
+</div>
+
+<!-- ============================================================
+     6. PANELS / CARDS
+     ============================================================ -->
+<div class="guide-section">
+  <h3>6. Panels / cards — .email-panel with .email-border</h3>
+  <table role="presentation" cellpadding="0" cellspacing="0" width="100%" class="email-panel bd-1px-solid-234a3a br-10px">
+    <tr><td class="pad-20px">
+      <p class="font-mono email-muted fs-11px mb-10px">./code_module.py</p>
+      <p class="font-display accent-1 fs-15px fw-700" style="margin-bottom:6px;">CODE</p>
+      <p class="font-body email-muted fs-13px lh-19px">Python, programming &amp; everything that compiles (eventually).</p>
+    </td></tr>
+  </table>
+</div>
+
+<!-- ============================================================
+     7. TERMINAL WINDOW
+     ============================================================ -->
+<div class="guide-section">
+  <h3>7. Terminal window — signature "boot sequence" component with traffic-light dots</h3>
+  <table role="presentation" cellpadding="0" cellspacing="0" width="100%" class="email-panel bd-1px-solid-234a3a br-10px">
+    <tr><td class="email-border pad-14px-20px bdb-1px-solid">
+      <table role="presentation" cellpadding="0" cellspacing="0"><tr>
+        <td class="pr-6px"><div class="traffic-red w-10px h-10px" style="border-radius:50%;">&nbsp;</div></td>
+        <td class="pr-6px"><div class="traffic-yellow w-10px h-10px" style="border-radius:50%;">&nbsp;</div></td>
+        <td class="pr-14px"><div class="traffic-green w-10px h-10px" style="border-radius:50%;">&nbsp;</div></td>
+        <td class="font-mono email-muted fs-11px">iplug@iiserpune:~$</td>
+      </tr></table>
+    </td></tr>
+    <tr><td class="terminal-pad pad-22px-28px-24px-28px">
+      <p class="font-mono email-muted fs-13px lh-22px">&gt; system ready<span class="accent-1">_</span></p>
+    </td></tr>
+  </table>
+</div>
+
+<!-- ============================================================
+     8. QUOTE BLOCK
+     ============================================================ -->
+<div class="guide-section">
+  <h3>8. Quote / callout block — .accent-1-bg left rail + .email-soft fill</h3>
+  <table role="presentation" cellpadding="0" cellspacing="0" width="100%" class="email-soft br-6px">
+    <tr>
+      <td class="accent-1-bg w-3px fs-0 lh-0">&nbsp;</td>
+      <td class="pad-20px-24px">
+        <p class="font-mono accent-1 fs-12px mb-8px">/* a thought worth compiling */</p>
+        <p class="font-display email-text fst-italic fs-19px lh-27px" style="margin:0;">&ldquo;Computers are like a bicycle for our minds.&rdquo;</p>
+        <p class="font-mono email-muted fs-12px mt-10px">// &mdash; Steve Jobs</p>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<!-- ============================================================
+     9. NUMBERED LIST ROWS
+     ============================================================ -->
+<div class="guide-section">
+  <h3>9. Numbered list rows — e.g. open-positions list in core_team.html</h3>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="bdcol-collapse">
+    <tr>
+      <td class="pad-12px-0 bdb-1px-dashed-232c36 va-top w-34px">
+        <span class="d-inline-flex ai-center jc-center w-26px h-26px bd-1px-solid-235c3d br-6px ff-space-mono-courier-new-monospace fw-700 fs-13-5px c-29d47a">1</span>
+      </td>
+      <td class="pad-12px-0-12px-12px bdb-1px-dashed-232c36">
+        <div class="ff-space-mono-courier-new-monospace fs-18px fw-700 mb-3px">Logistics</div>
+        <div class="fs-16px c-a8b3bd lh-1-55">Help with setting up events, ensure smooth flow of all activities organised.</div>
+      </td>
+    </tr>
+  </table>
+</div>
+
+<!-- ============================================================
+     10. DEADLINE / HIGHLIGHT BOX
+     ============================================================ -->
+<div class="guide-section">
+  <h3>10. Highlight / deadline box — bordered accent panel for a key date or stat</h3>
+  <table role="presentation" width="100%" cellpadding="0" cellspacing="0" class="bdcol-collapse bgc-131a22 bd-1-5px-solid-29d47a br-8px">
+    <tr><td class="pad-22px-26px ta-center">
+      <div class="ff-space-mono-courier-new-monospace fs-15px c-a8b3bd mb-6px">Application deadline</div>
+      <div class="ff-space-mono-courier-new-monospace fs-25px fw-700 c-29d47a">5 September 2026</div>
+    </td></tr>
+  </table>
+</div>
+
+<!-- ============================================================
+     11. BADGES
+     ============================================================ -->
+<div class="guide-section">
+  <h3>11. Badges — small pill-shaped stat callouts (not links, unlike chips)</h3>
+  <span class="d-inline-block ff-space-mono-courier-new-monospace fs-15px pad-6px-13px bd-1px-solid-235c3d br-999px c-29d47a mr-8px mb-8px">10 open positions</span>
+  <span class="d-inline-block ff-space-mono-courier-new-monospace fs-15px pad-6px-13px bd-1px-solid-232c36 br-999px c-a8b3bd mb-8px">Deadline · 5 Sep 2026</span>
+</div>
+
+<!-- ============================================================
+     12. DIVIDER
+     ============================================================ -->
+<div class="guide-section">
+  <h3>12. Divider — hairline rule used before the footer sign-off</h3>
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%">
+    <tr><td class="email-border bdt-1px-solid fs-1px lh-1px">&nbsp;</td></tr>
+  </table>
+</div>
+
+<!-- ============================================================
+     13. SIGN-OFF / FOOTER CARD (with embedded logo)
+     ============================================================ -->
+<div class="guide-section">
+  <h3>13. Sign-off footer card — logo + divider + regards text + social chips</h3>
+  <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%" class="email-panel bd-1px-solid-1c242d br-8px">
+    <tr><td class="pad-22px-24px">
+      <table role="presentation" cellpadding="0" cellspacing="0" border="0" width="100%"><tr>
+        <td width="72" valign="middle" class="pr-18px">
+          <img src="data:image/png;base64,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" width="70" height="70" alt="IPLUG" style="display:block; border:0; border-radius:6px;">
+        </td>
+        <td width="1" valign="middle" class="bdl-1px-solid-235c3d fs-0 lh-0">&nbsp;</td>
+        <td valign="middle" class="pl-20px">
+          <p class="font-body email-muted fs-14-5px lh-20px" style="margin:0 0 4px 0;">Regards,</p>
+          <p class="ff-space-mono-courier-new-monospace fs-13-5px lh-20px ls-2px fw-700 c-29d47a" style="margin:14px 0 0 0;">TEAM IPLUG</p>
+          <p class="font-body email-muted fs-13-5px" style="margin:10px 0 8px 0;">Join us on chat</p>
+          <table role="presentation" cellpadding="0" cellspacing="0" border="0" class="chip-row" style="display:inline-table;">
+            <tr>
+              <td style="padding-right:8px;"><a href="#" class="chip font-mono d-inline-block pad-6px-12px br-20px fs-12px fw-700 ls-0-5px">Tech</a></td>
+              <td style="padding-right:8px;"><a href="#" class="chip font-mono d-inline-block pad-6px-12px br-20px fs-12px fw-700 ls-0-5px">Gaming</a></td>
+              <td style="padding-right:8px;"><a href="#" class="chip font-mono d-inline-block pad-6px-12px br-20px fs-12px fw-700 ls-0-5px">Discord</a></td>
+              <td><a href="#" class="chip font-mono d-inline-block pad-6px-12px br-20px fs-12px fw-700 ls-0-5px">Instagram</a></td>
+            </tr>
+          </table>
+        </td>
+      </tr></table>
+    </td></tr>
+  </table>
+</div>
+
+<!-- ============================================================
+     14. TYPE SCALE
+     ============================================================ -->
+<div class="guide-section">
+  <h3>14. Typography scale — .fs-* utility classes</h3>
+  <p class="c-f5f7fa fs-11px" style="margin-bottom:4px;">fs-11px — the quick brown fox</p>
+  <p class="c-f5f7fa fs-13px" style="margin-bottom:4px;">fs-13px — the quick brown fox</p>
+  <p class="c-f5f7fa fs-15px" style="margin-bottom:4px;">fs-15px — the quick brown fox</p>
+  <p class="c-f5f7fa fs-18px" style="margin-bottom:4px;">fs-18px — the quick brown fox</p>
+  <p class="c-f5f7fa fs-22px" style="margin-bottom:4px;">fs-22px — the quick brown fox</p>
+  <p class="c-f5f7fa fs-30px" style="margin-bottom:4px;">fs-30px — the quick brown fox</p>
+  <p class="c-f5f7fa fs-54px">fs-54px — the quick brown fox</p>
+</div>
+
+<!-- ============================================================
+     15. LOGO
+     ============================================================ -->
+<div class="guide-section">
+  <h3>15. Logo — the single mark used across every IPLUG email</h3>
+  <div class="guide-row" style="align-items:center;">
+    <img src="data:image/png;base64,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" width="88" height="88" alt="IPLUG" style="border-radius:14px;">
+    <div>
+      <p class="email-muted fs-13px" style="margin-bottom:6px;">Shown at <code class="tag">88px</code> in email headers and <code class="tag">70px</code> in footer sign-off cards.</p>
+      <p class="email-muted fs-13px" style="margin-bottom:6px;">Embedded inline as a base64 PNG (<code class="tag">data:image/png;base64,...</code>) so it renders without external image hosting or a "load images" prompt in email clients.</p>
+      <p class="email-muted fs-13px">Same logo file is reused, byte-for-byte identical, in every one of the four emails.</p>
+    </div>
+  </div>
+  <p class="email-muted fs-13px" style="margin-top:14px;">Some emails (final_draft.html / reminder.html / thanks.html) additionally define a <code class="tag">.logo-light-img</code> / <code class="tag">.logo-dark-img</code> pair on the same mark, so a colour-scheme-aware mail client could in principle swap logo variants — currently both point at the same dark-optimised PNG.</p>
+</div>
+
+<!-- ============================================================
+     16. RESPONSIVE UTILITIES
+     ============================================================ -->
+<div class="guide-section">
+  <h3>16. Responsive utilities — @media (max-width: 620px)</h3>
+  <p class="email-muted fs-13px" style="margin-bottom:6px;"><code class="tag">.wrap</code> / <code class="tag">.fluid</code> — force full width on mobile</p>
+  <p class="email-muted fs-13px" style="margin-bottom:6px;"><code class="tag">.stack</code> — collapse two-column layouts to stacked blocks</p>
+  <p class="email-muted fs-13px" style="margin-bottom:6px;"><code class="tag">.pad-mobile</code> — tighter side padding on small screens</p>
+  <p class="email-muted fs-13px" style="margin-bottom:6px;"><code class="tag">.hero-title</code> / <code class="tag">.h2-title</code> — smaller headline sizes on mobile</p>
+  <p class="email-muted fs-13px" style="margin-bottom:6px;"><code class="tag">.divider-v</code> — hide vertical dividers on mobile</p>
+  <p class="email-muted fs-13px"><code class="tag">.sign-text</code> / <code class="tag">.chip-row</code> — center sign-off text and chip row on mobile</p>
+</div>
+
+</body>
+</html>

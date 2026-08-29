@@ -1,0 +1,333 @@
+/* ==========================================================================
+   IPLUG Email Templates — Shared Stylesheet
+   Used by: core_team.html, final_draft.html, reminder.html, thanks.html
+   ========================================================================== */
+
+/* ============ RESET ============ */
+html, body { margin: 0 !important; padding: 0 !important; height: 100% !important; width: 100% !important; }
+html { -webkit-text-size-adjust: 100%; -ms-text-size-adjust: 100%; text-size-adjust: 100%; }
+* { -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%; }
+body, table, td, div, p, a, span, h1, h2 {
+  -webkit-text-size-adjust: 100% !important;
+  -ms-text-size-adjust: 100% !important;
+  text-size-adjust: 100% !important;
+}
+body { -webkit-font-smoothing: antialiased; }
+table, td { mso-table-lspace: 0pt; mso-table-rspace: 0pt; }
+img { border: 0; height: auto; line-height: 100%; outline: none; text-decoration: none; -ms-interpolation-mode: bicubic; }
+a { text-decoration: none; }
+p { margin: 0; }
+
+/* ============ FONTS ============ */
+.font-mono { font-family: 'JetBrains Mono', 'Fira Code', 'SFMono-Regular', Consolas, Menlo, Monaco, 'Courier New', monospace; }
+.font-display { font-family: 'Space Grotesk', 'Poppins', 'Segoe UI', Helvetica, Arial, sans-serif; }
+.font-body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Helvetica, Arial, sans-serif; }
+
+/* ============ THEME A — used by final_draft / reminder / thanks (navy / mint) ============ */
+body, .bg-body { background-color: #0B0F19; }
+.email-shell { background-color: #0B0F19; }
+.email-panel { background-color: #12161F; }
+.email-soft  { background-color: #0F1710; }
+.email-border { border-color: #234A3A !important; }
+.email-text { color: #F5F7FA; }
+.email-body-text { color: #C7D0DC; }
+.email-muted { color: #8D99AA; }
+.accent-1 { color: #4EF0C4; }   /* primary accent */
+.accent-2 { color: #2CB67D; }   /* deep accent */
+.accent-1-bg { background-color: #4EF0C4; }
+.cta-fill { background-color: #12161F; box-shadow: inset 0 0 0 1px #4EF0C4; }
+.cta-text { color: #4EF0C4; }
+.chip { background-color: #0F1710; border: 1px solid #234A3A; color: #4EF0C4; }
+.traffic-red { background-color: #FF5F57; }
+.traffic-yellow { background-color: #FEBC2E; }
+.traffic-green { background-color: #28C840; }
+
+/* ============ LOGO (dark variant only) ============ */
+.logo-light-img { display: none; mso-hide: all; }
+.logo-dark-img  { display: inline-block; }
+
+/* ============ THEME B — used by core_team (black / signal-green) ============ */
+/* This template uses its own literal colors inline-turned-utility classes below
+   (c-0b0f14, bg-0b0f14, c-29d47a, etc.) rather than the named THEME A classes. */
+
+/* ============ RESPONSIVE (mobile) ============ */
+@media only screen and (max-width: 620px) {
+  .wrap { width: 100% !important; }
+  .fluid { width: 100% !important; max-width: 100% !important; height: auto !important; }
+  .stack { display: block !important; width: 100% !important; }
+  .pad-mobile { padding-left: 20px !important; padding-right: 20px !important; }
+  .hero-title { font-size: 38px !important; line-height: 42px !important; }
+  .h2-title { font-size: 21px !important; }
+  .terminal-pad { padding: 18px !important; }
+  .stack-pad { padding: 0 0 14px 0 !important; }
+  .divider-v { display: none !important; }
+  .sign-text { text-align: center !important; }
+  .chip-row { justify-content: center !important; }
+}
+
+/* ==========================================================================
+   UTILITY CLASSES
+   Auto-derived, one class per unique inline-style declaration found in the
+   original templates. Named <property-abbrev>-<value-slug>, e.g. fs-18 means
+   font-size:18px, pad-12-0 means padding:12px 0, c-29d47a means color:#29d47a.
+   ========================================================================== */
+
+/* -ms-text-size-adjust */
+.mstextsizeadjust-100 { -ms-text-size-adjust: 100%; }
+
+/* -webkit-text-size-adjust */
+.webkittextsizeadjust-100 { -webkit-text-size-adjust: 100%; }
+
+/* align-items */
+.ai-center { align-items: center; }
+
+/* background */
+.bgc-0b0f14 { background: #0b0f14; }
+.bgc-131a22 { background: #131a22; }
+.bgc-29d47a { background: #29d47a; }
+
+/* background-color */
+.bg-28c840 { background-color: #28C840; }
+.bg-febc2e { background-color: #FEBC2E; }
+.bg-ff5f57 { background-color: #FF5F57; }
+
+/* border */
+.bd-0 { border: 0; }
+.bd-1-5px-solid-29d47a { border: 1.5px solid #29d47a; }
+.bd-1px-solid-1c242d { border: 1px solid #1c242d; }
+.bd-1px-solid-232c36 { border: 1px solid #232c36; }
+.bd-1px-solid-234a3a { border: 1px solid #234A3A; }
+.bd-1px-solid-235c3d { border: 1px solid #235c3d; }
+
+/* border-bottom */
+.bdb-1px-dashed-232c36 { border-bottom: 1px dashed #232c36; }
+.bdb-1px-solid { border-bottom: 1px solid; }
+
+/* border-collapse */
+.bdcol-collapse { border-collapse: collapse; }
+
+/* border-left */
+.bdl-1px-solid-234a3a { border-left: 1px solid #234A3A; }
+.bdl-1px-solid-235c3d { border-left: 1px solid #235c3d; }
+
+/* border-radius */
+.br-10px { border-radius: 10px; }
+.br-20px { border-radius: 20px; }
+.br-50 { border-radius: 50%; }
+.br-6px { border-radius: 6px; }
+.br-8px { border-radius: 8px; }
+.br-999px { border-radius: 999px; }
+
+/* border-top */
+.bdt-1px-solid { border-top: 1px solid; }
+.bdt-1px-solid-1c242d { border-top: 1px solid #1c242d; }
+
+/* color */
+.c-0b0f14 { color: #0b0f14; }
+.c-29d47a { color: #29d47a; }
+.c-6b7684 { color: #6b7684; }
+.c-a8b3bd { color: #a8b3bd; }
+.c-f5f7fa { color: #f5f7fa; }
+
+/* display */
+.d-block { display: block; }
+.d-inline-block { display: inline-block; }
+.d-inline-flex { display: inline-flex; }
+.d-inline-table { display: inline-table; }
+.d-none { display: none; }
+
+/* font-family */
+.ff-inter-system-ui-sans-serif { font-family: 'Inter', system-ui, sans-serif; }
+.ff-inter-system-ui-sans-serif-2 { font-family: 'Inter',system-ui,sans-serif; }
+.ff-space-mono-courier-new-monospace { font-family: 'Space Mono','Courier New',monospace; }
+
+/* font-size */
+.fs-0 { font-size: 0; }
+.fs-11px { font-size: 11px; }
+.fs-12px { font-size: 12px; }
+.fs-13-5px { font-size: 13.5px; }
+.fs-13px { font-size: 13px; }
+.fs-14-5px { font-size: 14.5px; }
+.fs-14px { font-size: 14px; }
+.fs-15px { font-size: 15px; }
+.fs-16px { font-size: 16px; }
+.fs-17px { font-size: 17px; }
+.fs-18px { font-size: 18px; }
+.fs-19px { font-size: 19px; }
+.fs-1px { font-size: 1px; }
+.fs-20px { font-size: 20px; }
+.fs-22px { font-size: 22px; }
+.fs-24px { font-size: 24px; }
+.fs-25px { font-size: 25px; }
+.fs-26px { font-size: 26px; }
+.fs-30px { font-size: 30px; }
+.fs-54px { font-size: 54px; }
+
+/* font-style */
+.fst-italic { font-style: italic; }
+
+/* font-weight */
+.fw-700 { font-weight: 700; }
+
+/* height */
+.h-10px { height: 10px; }
+.h-26px { height: 26px; }
+.h-3px { height: 3px; }
+.h-70px { height: 70px; }
+.h-88px { height: 88px; }
+.h-auto { height: auto; }
+
+/* justify-content */
+.jc-center { justify-content: center; }
+
+/* letter-spacing */
+.ls-0-01em { letter-spacing: -0.01em; }
+.ls-0-5px { letter-spacing: 0.5px; }
+.ls-1px { letter-spacing: 1px; }
+.ls-1px-2 { letter-spacing: -1px; }
+.ls-2px { letter-spacing: 2px; }
+
+/* line-height */
+.lh-0 { line-height: 0; }
+.lh-1-15 { line-height: 1.15; }
+.lh-1-55 { line-height: 1.55; }
+.lh-1-7 { line-height: 1.7; }
+.lh-10px { line-height: 10px; }
+.lh-19px { line-height: 19px; }
+.lh-1px { line-height: 1px; }
+.lh-20px { line-height: 20px; }
+.lh-22px { line-height: 22px; }
+.lh-25px { line-height: 25px; }
+.lh-27px { line-height: 27px; }
+.lh-32px { line-height: 32px; }
+.lh-56px { line-height: 56px; }
+
+/* margin */
+.mar-0 { margin: 0; }
+.mar-0-0-14px { margin: 0 0 14px; }
+.mar-0-0-14px-0 { margin: 0 0 14px 0; }
+.mar-0-0-16px { margin: 0 0 16px; }
+.mar-0-0-18px-0 { margin: 0 0 18px 0; }
+.mar-0-0-24px-0 { margin: 0 0 24px 0; }
+.mar-0-0-4px { margin: 0 0 4px; }
+.mar-0-0-4px-0 { margin: 0 0 4px 0; }
+.mar-0-0-6px-0 { margin: 0 0 6px 0; }
+.mar-0-0-8px-0 { margin: 0 0 8px 0; }
+.mar-0-auto { margin: 0 auto; }
+.mar-10px-0-8px-0 { margin: 10px 0 8px 0; }
+.mar-14px-0-0 { margin: 14px 0 0; }
+.mar-14px-0-0-0 { margin: 14px 0 0 0; }
+.mar-6px-0-10px-0 { margin: 6px 0 10px 0; }
+
+/* margin-bottom */
+.mb-10px { margin-bottom: 10px; }
+.mb-3px { margin-bottom: 3px; }
+.mb-6px { margin-bottom: 6px; }
+.mb-8px { margin-bottom: 8px; }
+
+/* margin-right */
+.mr-8px { margin-right: 8px; }
+
+/* margin-top */
+.mt-10px { margin-top: 10px; }
+.mt-12px { margin-top: 12px; }
+.mt-14px { margin-top: 14px; }
+.mt-24px { margin-top: 24px; }
+.mt-26px { margin-top: 26px; }
+.mt-6px { margin-top: 6px; }
+
+/* max-height */
+.mh-0 { max-height: 0; }
+
+/* max-width */
+.mw-600px { max-width: 600px; }
+.mw-640px { max-width: 640px; }
+.mw-660px { max-width: 660px; }
+
+/* mso-hide */
+.msoh-all { mso-hide: all; }
+
+/* opacity */
+.op-0 { opacity: 0; }
+
+/* overflow */
+.ov-hidden { overflow: hidden; }
+
+/* padding */
+.pad-0 { padding: 0; }
+.pad-0-0-0-8px { padding: 0 0 0 8px; }
+.pad-0-0-16px-8px { padding: 0 0 16px 8px; }
+.pad-0-8px-0-0 { padding: 0 8px 0 0; }
+.pad-0-8px-16px-0 { padding: 0 8px 16px 0; }
+.pad-0px-32px-8px { padding: 0px 32px 8px; }
+.pad-12px { padding: 12px; }
+.pad-12px-0 { padding: 12px 0; }
+.pad-12px-0-12px-12px { padding: 12px 0 12px 12px; }
+.pad-13px-30px { padding: 13px 30px; }
+.pad-14px-20px { padding: 14px 20px; }
+.pad-14px-32px { padding: 14px 32px; }
+.pad-18px-16px-0-16px { padding: 18px 16px 0 16px; }
+.pad-18px-32px-0 { padding: 18px 32px 0; }
+.pad-20px { padding: 20px; }
+.pad-20px-24px { padding: 20px 24px; }
+.pad-22px-24px { padding: 22px 24px; }
+.pad-22px-26px { padding: 22px 26px; }
+.pad-22px-28px-24px-28px { padding: 22px 28px 24px 28px; }
+.pad-22px-32px-0 { padding: 22px 32px 0; }
+.pad-26px-24px { padding: 26px 24px; }
+.pad-26px-32px-0 { padding: 26px 32px 0; }
+.pad-26px-32px-4px { padding: 26px 32px 4px; }
+.pad-28px-16px-0-16px { padding: 28px 16px 0 16px; }
+.pad-30px-16px-0-16px { padding: 30px 16px 0 16px; }
+.pad-30px-32px-0 { padding: 30px 32px 0; }
+.pad-32px-0-0-0 { padding: 32px 0 0 0; }
+.pad-32px-32px-0 { padding: 32px 32px 0; }
+.pad-34px-32px-0 { padding: 34px 32px 0; }
+.pad-36px-16px-0-16px { padding: 36px 16px 0 16px; }
+.pad-38px-16px-0-16px { padding: 38px 16px 0 16px; }
+.pad-40px-16px-0-16px { padding: 40px 16px 0 16px; }
+.pad-44px-16px-0-16px { padding: 44px 16px 0 16px; }
+.pad-44px-16px-32px-16px { padding: 44px 16px 32px 16px; }
+.pad-6px-12px { padding: 6px 12px; }
+.pad-6px-13px { padding: 6px 13px; }
+.pad-8px-0 { padding: 8px 0; }
+
+/* padding-bottom */
+.pb-32px { padding-bottom: 32px; }
+
+/* padding-left */
+.pl-20px { padding-left: 20px; }
+
+/* padding-right */
+.pr-14px { padding-right: 14px; }
+.pr-18px { padding-right: 18px; }
+.pr-6px { padding-right: 6px; }
+.pr-8px { padding-right: 8px; }
+
+/* text-align */
+.ta-center { text-align: center; }
+.ta-left { text-align: left; }
+
+/* text-decoration */
+.tdc-none { text-decoration: none; }
+
+/* text-size-adjust */
+.textsizeadjust-100 { text-size-adjust: 100%; }
+
+/* text-transform */
+.tt-uppercase { text-transform: uppercase; }
+
+/* vertical-align */
+.va-top { vertical-align: top; }
+
+/* white-space */
+.ws-nowrap { white-space: nowrap; }
+
+/* width */
+.w-100 { width: 100%; }
+.w-10px { width: 10px; }
+.w-26px { width: 26px; }
+.w-34px { width: 34px; }
+.w-3px { width: 3px; }
+.w-70px { width: 70px; }
+.w-88px { width: 88px; }
